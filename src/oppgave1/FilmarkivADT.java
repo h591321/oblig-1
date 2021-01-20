@@ -9,5 +9,4 @@ public interface FilmarkivADT {
 	Film[] soekProdusent(String delNavnFilm);
 	int antallSjanger(Sjanger sjanger);
 	int antallFilmer();
-	
 }

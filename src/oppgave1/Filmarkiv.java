@@ -90,7 +90,11 @@ public class Filmarkiv implements FilmarkivADT {
 	return -1;
 	}
 	public void utvidFilmSamling() {
-		//TODO - utvidertabellen med 10%
+		Film[] hjelpetabell = new Film[(int)Math.ceil(1.1*filmSamling.length)];
+		for(int i=0;i<filmSamling.length;i++) {
+			hjelpetabell[i]=filmSamling[i];
+		}
+		filmSamling=hjelpetabell;
 	}
 
 }
