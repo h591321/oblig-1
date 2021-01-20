@@ -1,5 +1,4 @@
 package oppgave1;
 
-public enum Sjanger {
-
-}
+public enum Sjanger 
+{SCIFI, DRAMA, ACTION, HORROR, COMEDY, THIRLLER, ADVENTURE, WAR, FANTASY, DOCUMENTARY }
