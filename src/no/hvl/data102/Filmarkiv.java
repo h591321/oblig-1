@@ -1,31 +1,30 @@
-package oppgave1;
+package no.hvl.data102;
+
+import no.hvl.data102.adt.FilmarkivADT;
 
 public class Filmarkiv implements FilmarkivADT {
 	private Film[] filmSamling;
 	private int antall;
-	
 	public Filmarkiv(int storrelse) {
 		this.antall=0;
 		this.filmSamling=new Film[storrelse];
 	}
+	
+	
 	@Override
 	public Film[] hentFilmTabell() {
 		return filmSamling;
 	}
 	@Override
-	public void leggTil(Film film) { //syntes metoden kan endres på. den gjentar seg selv unødvendig
+	public void leggTil(Film film) { 
 		if(!finnes(film)) {
-			if(tabellPlass()) {
-				filmSamling[antall]=film;
-				antall++;
-			}else {
+			if(antall==filmSamling.length) {
 				utvidFilmSamling();
-				filmSamling[antall]=film;
-				antall++;
 			}
+			filmSamling[antall]=film;
+			antall++;
 		}
 	}
-
 	@Override
 	public boolean slettFilm(int filmNr) {
 		for(Film film:filmSamling) {
@@ -39,14 +38,28 @@ public class Filmarkiv implements FilmarkivADT {
 	}
 	@Override
 	public Film[] soekTittel(String delNavnFilm) {
-		// TODO
-		return null;
+		Film[] tittelSamling=new Film[antall];
+		int antallTittler=0;
+		for(int i=0;i<antall;i++) {
+			if(filmSamling[i].getTittel().toUpperCase().contains(delNavnFilm.toUpperCase())) {
+					tittelSamling[antallTittler]=filmSamling[i];
+				antallTittler++;
+			}
+		}
+		return trimTab(tittelSamling,antallTittler);
 	}
 	
 	@Override
-	public Film[] soekProdusent(String delNavnFilm) {
-		// TODO 
-		return null;
+	public Film[] soekProdusent(String delStringProdusent) {
+		Film[] prodSamling=new Film[antall];
+		int antallProd=0;
+		for(int i=0;i<antall;i++) {
+			if(filmSamling[i].getProdusent().toUpperCase().contains(delStringProdusent.toUpperCase())) {
+				prodSamling[antallProd]=filmSamling[i];
+				antallProd++;
+			}
+		}
+		return trimTab(prodSamling,antallProd);
 	}
 	@Override
 	public int antallSjanger(Sjanger sjanger) {
@@ -75,13 +88,6 @@ public class Filmarkiv implements FilmarkivADT {
 		}
 		return false;
 	}
-	//ser om det er plass i filmSamling
-	public boolean tabellPlass() {
-		if(filmSamling.length<=antall) {
-			return false;
-		}
-		return true;
-	}
 	//metoden returnerer hva tabellindexen til filmen er. -1 hvis den ikke finnes.
 	public int tabellIndex(Film film) {
 	for(int i=0;i<antall;i++) {
@@ -89,12 +95,23 @@ public class Filmarkiv implements FilmarkivADT {
 	}
 	return -1;
 	}
+	//utvider tabellen med 10%. math konseptet er tatt fra oppgaven
 	public void utvidFilmSamling() {
 		Film[] hjelpetabell = new Film[(int)Math.ceil(1.1*filmSamling.length)];
 		for(int i=0;i<filmSamling.length;i++) {
 			hjelpetabell[i]=filmSamling[i];
 		}
 		filmSamling=hjelpetabell;
+	}
+	//trimmer film[] tabell. tatt fra oppgaven
+	private Film[] trimTab(Film[] tab, int n) { // n er antall elementer
+		Film[] filmtab2= new Film[n];
+		int i= 0;
+		while(i< n) {
+			filmtab2[i] = tab[i];
+			i++;
+			}//while
+		return filmtab2;
 	}
 
 }

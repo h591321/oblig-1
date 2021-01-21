@@ -1,4 +1,4 @@
-package oppgave1;
+package no.hvl.data102;
 
 public class Film {
 	private int filmNr;
@@ -58,6 +58,9 @@ public class Film {
 	@Override
 	public String toString() {
 		return "Film [filmNr=" + filmNr + ", produsent=" + produsent + ", tittel=" + tittel + ", aar=" + aar
-				+ ", sjanger=" + sjanger + ", selskap=" + selskap + "]";
+				+ ", sjanger=" + sjanger.toString() + ", selskap=" + selskap + "]";
+	}
+	public String toStringFormat() { //denne strengen er riktig formatert til fil klassen
+		return filmNr+"#"+produsent+"#"+tittel+"#"+aar+"#"+sjanger.toString()+"#"+selskap;
 	}
 }

@@ -1,4 +1,4 @@
-package oppgave1;
+package no.hvl.data102;
 
 public enum Sjanger 
 {SCIFI, DRAMA, ACTION, HORROR, COMEDY, THIRLLER, ADVENTURE, WAR, FANTASY, DOCUMENTARY }
