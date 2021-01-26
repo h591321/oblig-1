@@ -28,7 +28,6 @@ public class Fil {
 			
 		}catch(FileNotFoundException e){ //idk hvorfor feilmelding
 			System.out.println("ikke gyldig filnavn");
-			return null;
 		}
 		
 		
