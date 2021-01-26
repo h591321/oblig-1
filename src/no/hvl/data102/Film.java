@@ -17,6 +17,7 @@ public class Film {
 		this.selskap=selskap;
 	}
 	public Film() {
+		this(0, "", "", 0, null, "");
 		
 	}
 	public int getFilmNr() {
