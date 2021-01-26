@@ -31,6 +31,7 @@ public class Fil {
 		
 		return filma;
 		
+		
 	}
 	public static void skrivTilFil(FilmarkivADT filmarkiv, String filnavn){
 		
