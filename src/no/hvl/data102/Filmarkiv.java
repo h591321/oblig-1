@@ -13,7 +13,8 @@ public class Filmarkiv implements FilmarkivADT {
 	
 	@Override
 	public Film[] hentFilmTabell() {
-		return filmSamling;
+		return trimTab(filmSamling, antall);
+
 	}
 	@Override
 	public void leggTil(Film film) { 
