@@ -32,7 +32,7 @@ public interface FilmarkivADT {
 	 */
 	
 	/**
-	 * Søker og henter produsenter med en gitt delstreng
+	 * Søker og henter Filmer med en gitt delstreng
 	 * @param delNavnFilm
 	 * @return
 	 */

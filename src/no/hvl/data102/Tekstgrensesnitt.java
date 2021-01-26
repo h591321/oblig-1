@@ -1,13 +1,31 @@
 package no.hvl.data102;
 
+import java.util.Scanner;
+
 import no.hvl.data102.adt.FilmarkivADT;
 
 
 public class Tekstgrensesnitt {
 	
 	public Film lesFilm() {
-		//TODO
-		return null;
+		Scanner leser = new Scanner(System.in);
+		System.out.println("skriv inn filmNr: ");
+		int filmNr=leser.nextInt();
+		System.out.println("skriv inn produsent: ");
+		String produsent=leser.next();
+		System.out.println("skriv inn tittel: ");
+		String tittel=leser.next();
+		System.out.println("skriv inn aar: ");
+		int aar=leser.nextInt();
+		System.out.println("skriv inn sjanger: ");
+		String sjangers=leser.next();
+		Sjanger sjanger=Sjanger.valueOf(sjangers);
+		System.out.println("skriv inn selskap: ");
+		String selskap=leser.next();
+		
+		Film film=new Film(filmNr,produsent,tittel,aar,sjanger,selskap);
+		return film;
+		
 	}
 	public void visFilm(Film film) {
 		System.out.println(film.toString());
