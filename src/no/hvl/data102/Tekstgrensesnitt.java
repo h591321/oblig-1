@@ -16,7 +16,13 @@ public class Tekstgrensesnitt {
 	
 	// Skriver ut alle Filmer av en produsent/en gruppe
 	public void skrivUtFilmDelstrengITittel(FilmarkivADT filma, String delstreng) {
-		//TODO
+		
+		Film[] tab= filma.soekProdusent(delstreng);
+		System.out.println("Resultat for '"+delstreng+"':");
+		for (Film a:tab) {
+			System.out.println(a.getTittel());
+		}
+		
 	}
 	public void skrivUtStatistikk(FilmarkivADT filma) {
 		System.out.println("Antall Filmer: "+filma.antallFilmer());

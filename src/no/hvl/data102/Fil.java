@@ -11,27 +11,26 @@ import no.hvl.data102.Film;
 
 public class Fil {
 	final static String SKILLE = "#"; 
+	
 	public static FilmarkivADT lesFraFil(String filnavn) {
 		FilmarkivADT filma=null;
 		
-		try {
-			Scanner scan=new Scanner(filnavn);
-			filma= new Filmarkiv(scan.nextInt());   //første linje er et tall som angir antall filmer
+		
+		Scanner scan=new Scanner(filnavn);
+		filma= new Filmarkiv(scan.nextInt());   //første linje er et tall som angir antall filmer
+		
+		while(scan.hasNextLine()) {
+			String[] tab = scan.nextLine().split(SKILLE);
 			
-			while(scan.hasNextLine()) {
-				String[] tab = scan.nextLine().split(SKILLE);
-				
-				Film film=new Film(Integer.parseInt(tab[0]), tab[1], tab[2], Integer.parseInt(tab[3]), Sjanger.valueOf(tab[4]), tab[5]);
-				filma.leggTil(film);
-			}
-			scan.close();
+			Film film=new Film(Integer.parseInt(tab[0]), tab[1], tab[2], Integer.parseInt(tab[3]), Sjanger.valueOf(tab[4]), tab[5]);
+			filma.leggTil(film);
 			
-		}catch(FileNotFoundException e){ //idk hvorfor feilmelding
-			System.out.println("ikke gyldig filnavn");
 		}
 		
+		scan.close();
 		
 		return filma;
+		
 	}
 	public static void skrivTilFil(FilmarkivADT filmarkiv, String filnavn){
 		
