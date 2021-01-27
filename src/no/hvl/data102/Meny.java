@@ -1,35 +1,47 @@
 package no.hvl.data102;
 
+import java.util.Scanner;
+
 import no.hvl.data102.adt.FilmarkivADT;
 
 public class Meny {
 	
-	private Tekstgrensesnitt tekstgrensesnitt;
-	private FilmarkivADT filmarkiv;
+	private Tekstgrensesnitt tgs;
+	private FilmarkivADT fA;
+	Scanner skanner;
 	
 	public Meny(FilmarkivADT filmer) {
-		tekstgrensesnitt= new Tekstgrensesnitt();
-		filmarkiv = filmer;
+		fA = filmer;
+		tgs= new Tekstgrensesnitt();
+		skanner = new Scanner(System.in);
+		
 	}
 	
 	 public void start(){
-		 int valg=valg();
-		 switch (valg) {
-		 case 1: 
-		 
-		 
-		 
-		 }
-		 
-		 
-	 }
+		 System.out.print("Nytt arkiv (1), eller eksisterende (2): ");
+			String valg = skanner.nextLine();
+			System.out.println();
 
-	 
-	 private int valg() {
-		 int valget=0;
-		 System.out.println("1) ei velkommer til dette");
-		 System.out.println("2) ei velkommer til dette");
+			if(valg.equals("2")) {
+				System.out.print("Oppgi filnavn: ");
+				String filnavn = skanner.nextLine();
+				fA = Fil.lesFraFil(filnavn);
+				System.out.println();
+			}
+
+			kundemeny();
+		}
+
+	private void kundemeny() {
+		// TODO Auto-generated method stub
+		
+	}
 		 
-		 return valget;
-	 }
+		 
+		 
+		 
+		 
+	 
+
+	
 }
