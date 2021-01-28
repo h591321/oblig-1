@@ -39,6 +39,8 @@ public class Fil {
 			FileWriter skriver=new FileWriter(filnavn);
 			Film[] filmTab=filmarkiv.hentFilmTabell();
 			
+			skriver.write(filmarkiv.antallFilmer());
+			
 			for(int i=0;i<filmarkiv.antallFilmer();i++) {
 			skriver.write(filmTab[i].toStringFormat());
 			}
