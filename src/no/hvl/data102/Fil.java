@@ -36,10 +36,11 @@ public class Fil {
 	public static void skrivTilFil(FilmarkivADT filmarkiv, String filnavn){
 		
 		try {
-			FileWriter skriver=new FileWriter(filnavn);
+			FileWriter skriver=new FileWriter(filnavn+".txt");
 			Film[] filmTab=filmarkiv.hentFilmTabell();
 			
-			skriver.write(filmarkiv.antallFilmer());
+			skriver.write(filmarkiv.antallFilmer()+"\n");
+			
 			
 			for(int i=0;i<filmarkiv.antallFilmer();i++) {
 			skriver.write(filmTab[i].toStringFormat());
