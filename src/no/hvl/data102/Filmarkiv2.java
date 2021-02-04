@@ -107,6 +107,7 @@ public class Filmarkiv2 implements FilmarkivADT{
 	}
 	
 	//hjelpemetoder********************************************************************
+	
 	private boolean erTom() {
 		return antall<=0;
 	}
