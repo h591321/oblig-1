@@ -55,8 +55,16 @@ public class Filmarkiv2 implements FilmarkivADT{
 	}
 	@Override
 	public Film[] soekTittel(String delNavnFilm) {
-		// TODO Auto-generated method stub
-		return null;
+		Film[] tittelSamling=kjedeTilTab();
+		LinearNode<Film> node=start;
+		int antallTittler=0;
+		for(int i=0;i<antall;i++) {
+			if(filmSamling[i].getTittel().toUpperCase().contains(delNavnFilm.toUpperCase())) {
+				tittelSamling[antallTittler]=filmSamling[i];
+				antallTittler++;
+			}
+		}
+		return trimTab(tittelSamling,antallTittler);
 	}
 	@Override
 	public Film[] soekProdusent(String delStringProdusent) {
@@ -83,8 +91,14 @@ public class Filmarkiv2 implements FilmarkivADT{
 	//hjelpemetoder********************************************************************
 	
 	public Film[] kjedeTilTab() {
-		//TODO
-		return null;
+		LinearNode<Film> node=start;
+		Film[]tab=new Film[antall];
+		
+		for(int i=0;i<antall;i++) {
+			tab[i]=node.getElement();
+			node.getNeste();
+		}
+		return tab;
 	}
 	private Film[] trimTab(Film[] tab, int n) { // n er antall elementer
 		Film[] filmtab2= new Film[n];
