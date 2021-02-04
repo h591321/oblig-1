@@ -28,7 +28,7 @@ public class Filmarkiv2 implements FilmarkivADT{
 	public boolean slettFilm(int film) {
 		LinearNode<Film> node=start;
 		LinearNode<Film> forrige=null;
-		if(!tomListe) {
+		if(! erTom() ) {
 			if(start.getElement().getFilmNr()==film) {
 				start=start.getNeste();
 				antall--;
@@ -47,6 +47,11 @@ public class Filmarkiv2 implements FilmarkivADT{
 			}
 		}
 		return false;
+	}
+	
+	private boolean erTom() {
+		// TODO Auto-generated method stub
+		return antall<=0;
 	}
 	@Override
 	public Film[] soekTittel(String delNavnFilm) {
