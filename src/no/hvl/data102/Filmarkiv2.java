@@ -23,7 +23,7 @@ public class Filmarkiv2 implements FilmarkivADT{
 	}
 	@Override
 	public Film[] hentFilmTabell() {
-		return null;
+		return trimTab(kjedeTilTab(),antall);
 	}
 	@Override
 	public void leggTil(Film film) {
@@ -57,9 +57,7 @@ public class Filmarkiv2 implements FilmarkivADT{
 		return false;
 	}
 	
-	private boolean erTom() {
-		return antall>0;
-	}
+
 	@Override
 	public Film[] soekTittel(String delNavnFilm) {
 		Film[] tittelSamling=new Film[antall];
@@ -106,14 +104,18 @@ public class Filmarkiv2 implements FilmarkivADT{
 	}
 	
 	//hjelpemetoder********************************************************************
+	private boolean erTom() {
+		return antall<=0;
+	}
 	
 	public Film[] kjedeTilTab() {
 		LinearNode<Film> node=start;
 		Film[]tab=new Film[antall];
-		
-		for(int i=0;i<antall;i++) {
-			tab[i]=node.getElement();
-			node.getNeste();
+		if(!erTom()) {
+			for(int i=0;i<antall;i++) {
+				tab[i]=node.getElement();
+				node=node.getNeste();
+			}
 		}
 		return tab;
 	}
