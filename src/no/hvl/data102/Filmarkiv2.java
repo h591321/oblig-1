@@ -6,10 +6,17 @@ public class Filmarkiv2 implements FilmarkivADT{
 	private int antall;
 	private LinearNode<Film> start;
 	
-	public Filmarkiv2(LinearNode<Film> start, int antall) {
-		this.antall=antall;
+	public Filmarkiv2(LinearNode<Film> start) {
+		int ant=0;
+		LinearNode<Film> noder = start;
+		while(noder!=null) {
+			ant++;
+			noder=noder.getNeste();
+		}
+		this.antall=ant;
 		this.start=start;
 	}
+	
 	public Filmarkiv2() {
 		this.antall=0;
 		this.start=null;
