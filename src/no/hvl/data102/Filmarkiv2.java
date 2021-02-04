@@ -50,8 +50,7 @@ public class Filmarkiv2 implements FilmarkivADT{
 	}
 	
 	private boolean erTom() {
-		// TODO Auto-generated method stub
-		return antall<=0;
+		return antall>0;
 	}
 	@Override
 	public Film[] soekTittel(String delNavnFilm) {
@@ -65,8 +64,15 @@ public class Filmarkiv2 implements FilmarkivADT{
 	}
 	@Override
 	public int antallSjanger(Sjanger sjanger) {
-		// TODO Auto-generated method stub
-		return 0;
+		LinearNode<Film> node=start;
+		int teller=0;
+		for(int i=0;i<antall;i++) {
+			if(node.getElement().getSjanger()==sjanger) {
+				teller++;
+			}
+			node=node.getNeste();
+		}
+		return teller;
 	}
 	@Override
 	public int antallFilmer() {
