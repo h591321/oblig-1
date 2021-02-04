@@ -33,17 +33,22 @@ public class Filmarkiv2 implements FilmarkivADT{
 		antall++;
 	}
 	@Override
-	public boolean slettFilm(int film) {
+	public boolean slettFilm(int filmNr) {
 		LinearNode<Film> node=start;
-		LinearNode<Film> forrige=null;
-		if(! erTom() ) {
-			if(start.getElement().getFilmNr()==film) {
+		LinearNode<Film> forrige=start;
+		if(!erTom()) {
+			if(start.getElement().getFilmNr()==filmNr) {
 				start=start.getNeste();
 				antall--;
 				return true;
 			}
+			
+			forrige=node;
+			node=forrige.getNeste();
+			
 			for(int i=0;i<antall;i++) {
-				if(node.getElement().getFilmNr()==film) {
+				
+				if(node.getElement().getFilmNr()==filmNr) {
 					forrige.setNeste(node.getNeste());
 					antall--;
 					return true;
