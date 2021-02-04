@@ -55,21 +55,31 @@ public class Filmarkiv2 implements FilmarkivADT{
 	}
 	@Override
 	public Film[] soekTittel(String delNavnFilm) {
-		Film[] tittelSamling=kjedeTilTab();
+		Film[] tittelSamling=new Film[antall];
 		LinearNode<Film> node=start;
 		int antallTittler=0;
 		for(int i=0;i<antall;i++) {
-			if(filmSamling[i].getTittel().toUpperCase().contains(delNavnFilm.toUpperCase())) {
-				tittelSamling[antallTittler]=filmSamling[i];
+			if(node.getElement().getTittel().toUpperCase().contains(delNavnFilm.toUpperCase())) {
+				tittelSamling[antallTittler]=node.getElement();
 				antallTittler++;
 			}
+			node=node.getNeste();
 		}
 		return trimTab(tittelSamling,antallTittler);
 	}
 	@Override
 	public Film[] soekProdusent(String delStringProdusent) {
-		// TODO Auto-generated method stub
-		return null;
+		Film[] prodSamling=new Film[antall];
+		LinearNode<Film> node=start;
+		int antallTittler=0;
+		for(int i=0;i<antall;i++) {
+			if(node.getElement().getProdusent().toUpperCase().contains(delStringProdusent.toUpperCase())) {
+				prodSamling[antallTittler]=node.getElement();
+				antallTittler++;
+			}
+			node=node.getNeste();
+		}
+		return trimTab(prodSamling,antallTittler);
 	}
 	@Override
 	public int antallSjanger(Sjanger sjanger) {
