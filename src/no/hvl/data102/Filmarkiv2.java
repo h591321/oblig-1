@@ -23,6 +23,7 @@ public class Filmarkiv2 implements FilmarkivADT{
 		LinearNode<Film> node=new LinearNode<Film>(film);
 		node.setNeste(start);
 		start=node;
+		antall++;
 	}
 	@Override
 	public boolean slettFilm(int film) {
