@@ -1,6 +1,7 @@
 package adt;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -38,15 +39,29 @@ public abstract class KoeADTTest {
 		 * Test på at en ny Koe er tom.
 		 */
 		@Test
-		public void nyStabelErTom() {
+		public void nyKoeErTom() {
 			assertTrue(Koe.erTom());
 		}
+		
+		
+		
+		/**
+		 * Test på at en Koe med noen elementer ikke er tom.
+		 */
+		@Test
+		public final void erIkkeTom() {
+			Koe.innKoe(e0);
+			Koe.innKoe(e1);
+			assertFalse(Koe.erTom());
+		}
+		
+		
 		
 		/**
 		 * Test opå innKoe and UtKoe.
 		 */
 		@Test
-		public void pushOgPop() {
+		public void innKoeOgUttKoe() {
 
 			Koe.innKoe(e0);
 			Koe.innKoe(e1);
