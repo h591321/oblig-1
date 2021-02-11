@@ -35,6 +35,16 @@ public abstract class FilmarkivADTTest {
 	}
 	
 	/**
+	 * Test på at filmarkivet er tom.
+	 */
+	@Test
+	public void filmarkivErTom() {
+		assertTrue(filmarkiv.erTom());
+	}
+	
+	
+	
+	/**
 	 * Test på legge inn og slette film fra film arkivet.
 	 */
 	@Test
@@ -54,7 +64,25 @@ public abstract class FilmarkivADTTest {
 	}
 	
 	
-	
+	/**
+	 * Test på legge inn og slette film med duplikate verdier.
+	 */
+	@Test
+	public void leggTilOgSlettFilmDuplikater() {
+
+		filmarkiv.leggTil(film1);
+		filmarkiv.leggTil(film2);
+		filmarkiv.leggTil(film2);
+		filmarkiv.leggTil(film3);
+
+		try {
+			assertTrue(filmarkiv.slettFilm(film1.getFilmNr()));
+			assertTrue(filmarkiv.slettFilm(film2.getFilmNr()));
+			assertTrue(filmarkiv.slettFilm(film3.getFilmNr()));
+		} catch (NullPointerException e) {
+			fail("filmen er ikke i film arkivet " + e.getMessage());
+		}
+	}
 	
 	
 	

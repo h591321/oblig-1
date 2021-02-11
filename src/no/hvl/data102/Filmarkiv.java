@@ -120,4 +120,9 @@ public class Filmarkiv implements FilmarkivADT {
 			}//while
 		return filmtab2;
 	}
+
+	@Override
+	public boolean erTom() {
+		return antall<=0;
+	}
 }
