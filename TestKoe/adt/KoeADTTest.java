@@ -57,6 +57,24 @@ public abstract class KoeADTTest {
 		
 		
 		
+		
+		/**
+		 * Test på at en Koe med null elementer er tom.
+		 */
+		@Test
+		public void pushPopErTom() {
+			try {
+				Koe.innKoe(e0);
+				Koe.utKoe();
+				assertTrue(Koe.erTom());
+
+			} catch (EmptyCollectionException e) {
+				fail("push eller pop feilet uventet " + e.getMessage());
+			}
+		}
+		
+		
+		
 		/**
 		 * Test opå innKoe and UtKoe.
 		 */
