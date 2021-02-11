@@ -38,9 +38,21 @@ public abstract class FilmarkivADTTest {
 	 * Test på at filmarkivet er tom.
 	 */
 	@Test
-	public void filmarkivErTom() {
+	public void erTomTest() {
 		assertTrue(filmarkiv.erTom());
 	}
+	
+	
+	/**
+	 * Test på at en filmarkivet med noen elementer ikke er tom.
+	 */
+	@Test
+	public final void erIkkeTomTest() {
+		filmarkiv.leggTil(film1);
+		filmarkiv.leggTil(film2);
+		assertFalse(filmarkiv.erTom());
+	}
+
 	
 	
 	
@@ -48,7 +60,7 @@ public abstract class FilmarkivADTTest {
 	 * Test på legge inn og slette film fra film arkivet.
 	 */
 	@Test
-	public void leggTilOgSlettFilm() {
+	public void leggTilOgSlettFilmTest() {
 		filmarkiv.leggTil(film1);
 		filmarkiv.leggTil(film2);
 		filmarkiv.leggTil(film3);
@@ -69,7 +81,7 @@ public abstract class FilmarkivADTTest {
 	 * Test på legge inn og slette film med duplikate verdier.
 	 */
 	@Test
-	public void leggTilOgSlettFilmDuplikater() {
+	public void leggTilOgSlettFilmDuplikaterTest() {
 
 		filmarkiv.leggTil(film1);
 		filmarkiv.leggTil(film2);
