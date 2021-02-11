@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
-import no.hvl.dat102.exception.EmptyCollectionException;
+
 import no.hvl.data102.Film;
 import no.hvl.data102.Sjanger;
 import no.hvl.data102.adt.FilmarkivADT;
@@ -52,6 +52,8 @@ public abstract class FilmarkivADTTest {
 			fail("filmen er ikke i film arkivet " + e.getMessage());
 		}
 	}
+	
+	
 	
 	
 	
