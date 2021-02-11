@@ -62,7 +62,7 @@ public abstract class KoeADTTest {
 		 * Test på at en Koe med null elementer er tom.
 		 */
 		@Test
-		public void pushPopErTom() {
+		public void innKoeUtKoeTom() { 
 			try {
 				Koe.innKoe(e0);
 				Koe.utKoe();
