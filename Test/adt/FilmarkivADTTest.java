@@ -1,0 +1,38 @@
+package adt;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
+
+import no.hvl.data102.Film;
+import no.hvl.data102.Sjanger;
+import no.hvl.data102.adt.FilmarkivADT;
+
+public abstract class FilmarkivADTTest {
+	private FilmarkivADT filmarkiv;
+	
+	private Film film1 =new Film(10,"Birk","The Flash",1998,Sjanger.ACTION,"DC");
+	private Film film2 =new Film(11,"Khalid","Captin America",1998,Sjanger.ACTION,"Marvels");
+	private Film film3 =new Film(12,"håkon","Spider Man",1998,Sjanger.ACTION,"Marvels");
+	private Film film4 =new Film(13,"Yosafe","Batman",1997,Sjanger.ACTION,"DC");
+	private Film film5 =new Film(14,"Peter","ForrestGump",1996,Sjanger.COMEDY,"Universal");
+	
+	protected abstract FilmarkivADT reset();
+	
+	
+	
+	@BeforeEach
+	public void setup() {
+		filmarkiv = reset();
+	}
+	
+	
+
+}
