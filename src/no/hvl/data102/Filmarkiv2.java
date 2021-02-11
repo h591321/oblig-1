@@ -27,12 +27,12 @@ public class Filmarkiv2 implements FilmarkivADT{
 	}
 	@Override
 	public void leggTil(Film film) {
-		if(!finnes(film)) {
+		
 			LinearNode<Film> node=new LinearNode<Film>(film);
 			node.setNeste(start);
 			start=node;
 			antall++;
-		}
+		
 		
 	}
 	@Override
@@ -115,19 +115,19 @@ public class Filmarkiv2 implements FilmarkivADT{
 		return antall<=0;
 	}
 	
-	public boolean finnes(Film film) { // versjon 1
-		boolean funnet = false;
-		LinearNode<Film> denne = start;
-
-		for (int sok = 0; sok < antall && !funnet; sok++) {
-			if (((denne.getElement()).getFilmNr())==(film.getFilmNr())) {
-				funnet = true;
-			} else {
-				denne = denne.getNeste();
-			}
-		}
-		return funnet;
-	}
+//	public boolean finnes(Film film) { // versjon 1
+//		boolean funnet = false;
+//		LinearNode<Film> denne = start;
+//
+//		for (int sok = 0; sok < antall && !funnet; sok++) {
+//			if (((denne.getElement()).getFilmNr())==(film.getFilmNr())) {
+//				funnet = true;
+//			} else {
+//				denne = denne.getNeste();
+//			}
+//		}
+//		return funnet;
+//	}
 	
 	public Film[] kjedeTilTab() {
 		LinearNode<Film> node=start;
