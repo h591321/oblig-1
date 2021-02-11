@@ -92,7 +92,6 @@ public abstract class FilmarkivADTTest {
 			assertTrue(filmarkiv.slettFilm(film1.getFilmNr()));
 			assertTrue(filmarkiv.slettFilm(film2.getFilmNr()));
 			assertTrue(filmarkiv.slettFilm(film3.getFilmNr()));
-			assertTrue(filmarkiv.erTom());
 		} catch (NullPointerException e) {
 			fail("filmen er ikke i film arkivet " + e.getMessage());
 		}
