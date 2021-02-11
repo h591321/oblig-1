@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
+
 import no.hvl.data102.Film;
 import no.hvl.data102.Sjanger;
 import no.hvl.data102.adt.FilmarkivADT;
@@ -32,6 +33,27 @@ public abstract class FilmarkivADTTest {
 	public void setup() {
 		filmarkiv = reset();
 	}
+	
+	/**
+	 * Test på at en ny filmarkiv er tom.
+	 */
+	@Test
+	public void leggTilOgSlettFilm() {
+		filmarkiv.leggTil(film1);
+		filmarkiv.leggTil(film2);
+		filmarkiv.leggTil(film3);
+		filmarkiv.leggTil(film4);
+		try {
+			assertTrue(filmarkiv.slettFilm(film1.getFilmNr()));
+			assertTrue(filmarkiv.slettFilm(film2.getFilmNr()));
+			assertTrue(filmarkiv.slettFilm(film3.getFilmNr()));
+			assertTrue(filmarkiv.slettFilm(film4.getFilmNr()));
+		} catch (NullPointerException e) {
+			fail("filmen er ikke i film arkivet " + e.getMessage());
+		}
+	}
+	
+	
 	
 	
 
