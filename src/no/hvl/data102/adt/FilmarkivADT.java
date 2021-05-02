@@ -64,4 +64,11 @@ public interface FilmarkivADT {
 	 * @return
 	 */
 	int antallFilmer();
+	
+	
+	/**
+	 * sjekker om et arkiv er tom
+	 * @return
+	 */
+	public boolean erTom();
 }
